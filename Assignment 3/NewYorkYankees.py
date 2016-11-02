@@ -1,5 +1,6 @@
 import wikipedia
 import pickle
+import string
 team = "New York Yankees"
 source = wikipedia.page("New York Yankees")
 
@@ -10,8 +11,12 @@ reloaded_copy_of_texts = pickle.load(input_file)
 
 def word_list(page):
     hist = {}
+
+    strippables = string.punctuation + string.whitespace
     for word in page.split():
+        word = word.strip(strippables)
         word = word.lower()
+
         hist[word] = hist.get(word,0)+1
     return hist
 
@@ -26,7 +31,7 @@ def different_words(hist):
 #print(different_words(hist))
 #print(different_words(reloaded_copy_of_texts))
 
-stopwords = ['a', 'the', 'in', 'of', 'the', 'is', 'are', 'am', 'at', 'but', 'by', 'was', 'to', 'and', 'for', 'as', 'with', 'on', 'that', 'from', 'were', 'his', 'had', 'their', '===']
+stopwords = ['a', 'the', 'in', 'of', 'the', 'is', 'are', 'am', 'at', 'but', 'by', 'was', 'to', 'and', 'for', 'as', 'with', 'on', 'that', 'from', 'were', 'his', 'had', 'their', '===' , '', 'they']
 
 def most_common(hist):
     temp = []
