@@ -72,13 +72,30 @@ def main():
     print("The word 'champion' appears", dict1.get('champion',0), "times.") 
     print("The word 'baseball' appears", dict1.get('baseball',0), "times.") 
 
-if __name__ =='__main__':
-    main()
-    #print(dict1)
-
 import nltk
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sentence = reloaded_copy_of_texts
 score = SentimentIntensityAnalyzer().polarity_scores(sentence)
 print(score)
+
+if __name__ =='__main__':
+    main()
+    #print(dict1)
+
+# Total number of words: 13087
+# Total numer of different words: 2863
+# The most common words are [(232, 'red'), (229, 'sox'), (90, 'season'),
+# (86, 'team'), (78, 'series'), (76, 'boston'), (70, 'league'),
+# (69, 'games'), (60, 'game'), (56, 'yankees')]
+# The word 'boston' appears 76 times.
+# The word 'red' appears 232 times.
+# The word 'sox' appears 229 times.
+# The word 'new' appears 45 times.
+# The word 'york' appears 15 times.
+# The word 'yankees' appears 56 times.
+# The word 'world' appears 49 times.
+# The word 'series' appears 78 times.
+# The word 'champion' appears 3 times.
+# The word 'baseball' appears 29 times.
+# {'compound': 1.0, 'pos': 0.101, 'neg': 0.053, 'neu': 0.846}
