@@ -10,7 +10,7 @@ from NewYorkYankees import dict2
 #     differences.sort()
 #     differences.reverse()
 # print(differences)
-
+""""determines which list has the word more frequently"""
 def which_list():
     for word in key_words:
         net = dict1.get(word, 0) - dict2.get(word, 0)
@@ -25,7 +25,7 @@ def which_list():
 print(which_list())
 
 same_occurences = []
-
+""""creates a list of words that appear the same number of times in each dictionary""""
 for word in dict1:
     if word in dict2:
         same = dict1.get(word, 0) - dict2.get(word, 0)
@@ -35,7 +35,7 @@ for word in dict1:
 print(same_occurences)
 print(len(same_occurences))
 
-
+""""output"""
 # The word boston appears 58 more times on the Boston Red Sox page.
 # The word red appears 191 more times on the Boston Red Sox page.
 # The word sox appears 187 more times on the Boston Red Sox page.

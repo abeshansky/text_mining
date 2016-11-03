@@ -9,6 +9,8 @@ file_name = "New York Yankees Data.pickle"
 input_file = open(file_name,'br')
 reloaded_copy_of_texts = pickle.load(input_file)
 
+"""please see BostonRedSox.py for doc string"""
+
 def word_list(page):
     hist = {}
 

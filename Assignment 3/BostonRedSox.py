@@ -22,6 +22,7 @@ reloaded_copy_of_texts = pickle.load(input_file)
 #print(reloaded_copy_of_texts)
 
 def word_list(page):
+    """creates the histogram used to run the analysis"""
     hist = {}
     
     strippables = string.punctuation + string.whitespace
@@ -34,18 +35,23 @@ def word_list(page):
 
 #print(word_list(reloaded_copy_of_texts))
 dict1 = word_list(reloaded_copy_of_texts)
+"""creates the first dictionary based on the histogram of the wikipedia page text"""
 
 def total_words(hist):
+    """returns the total number of words"""
     return sum(hist.values())
 
 def different_words(hist):
+    """returns the total number of unique words"""
     return len(hist)
 #print(different_words(hist))
 #print(different_words(reloaded_copy_of_texts))
 
 stopwords = ['a', 'the', 'in', 'of', 'the', 'is', 'are', 'am', 'at', 'but', 'by', 'was', 'to', 'and', 'for', 'as', 'with', 'on', 'that', 'from', 'were', 'his', 'had', 'their', '===' , '', 'they']
+""""common words that show up but have no useful informaiton"""
 
 def most_common(hist):
+    """creates the list of most frequent words"""
     temp = []
     for word, frequency in hist.items():
         temp.append((frequency, word))
@@ -58,6 +64,7 @@ def most_common(hist):
 common_wordlist = most_common(word_list(reloaded_copy_of_texts))
 
 def main():
+    """prints the number of occurences for key words"""
     print('Total number of words:', total_words(dict1))
     print('Total numer of different words:', different_words(dict1))
     print('The most common words are', common_wordlist[:10])
@@ -73,7 +80,7 @@ def main():
     print("The word 'baseball' appears", dict1.get('baseball',0), "times.") 
 
 import nltk
-
+"""runs the sentiment analysis"""
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sentence = reloaded_copy_of_texts
 score = SentimentIntensityAnalyzer().polarity_scores(sentence)
@@ -82,7 +89,8 @@ print(score)
 if __name__ =='__main__':
     main()
     #print(dict1)
-
+    
+""""output""""
 # Total number of words: 13087
 # Total numer of different words: 2863
 # The most common words are [(232, 'red'), (229, 'sox'), (90, 'season'),
